@@ -68,12 +68,8 @@ def one(input1, input2):
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
 def two(string):
-	list = string.lower().split('bert')
-	if len(list) != 3:
-		return ''
-	else:
-		Bert = string[(len(list[0])+4):-(len(list[2])+4)]
-		return Bert
+	return '' if len(string.lower().split('bert')) != 3 else string[(len(string.lower().split('bert')[0])+4):-(len(string.lower().split('bert')[2])+4)]
+
 
 
 
