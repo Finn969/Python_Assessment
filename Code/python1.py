@@ -126,9 +126,8 @@ def three(arg1):
 def four(arg1):
 	out = 0
 	for i in arg1.split():
-		s = sum(map(int,i))
-		if s > out:
-			out = s
+		if sum(map(int,i)) > out:
+			out = sum(map(int,i))
 	return out
 
 	# <QUESTION 5>
@@ -161,8 +160,7 @@ def five(string):
     names = []
     for i in range(0,len(list),4):
         sublist = list[i:i+4]
-        if sublist[2] == 'False' and sublist[0] not in names:
-            names.append(sublist[0])
+        if sublist[2] == 'False' and sublist[0] not in names:names.append(sublist[0])
     return names
 
 
@@ -213,8 +211,7 @@ def seven(string):
 	vowels = list('aeiouAEIOU')
 	count = 0
 	for c in string:
-		if c in vowels:
-			count +=1
+		if c in vowels: count +=1
 	return count
 
 	# <QUESTION 8>
@@ -234,9 +231,8 @@ def seven(string):
 
 def eight(x):
 	total = 1
-	while x>0:
-		total = total * x
-		x = x-1
+	for i in range(1,x+1):
+		total = total * i
 	return total
 
 	# <QUESTION 9>
