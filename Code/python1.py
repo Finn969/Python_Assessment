@@ -35,7 +35,12 @@
 	# What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).
 
 def one(input1, input2):
-	return ""
+	if len(input1) == len(input2):
+		return input1+' '+input2
+	elif len(input1) > len(input2):
+		return input1
+	else:
+		return input2
 
 
 
@@ -62,8 +67,17 @@ def one(input1, input2):
 	
 	# Use your CLI to access the Python documentation and get help manipulating strings - help(str).
 
-def two(input):
-	return ""
+def two(string):
+	list = string.lower().split('bert')
+	print (list)
+	if len(list) != 3:
+		return ''
+	else:
+		low = len(list[0])+4
+		high = len(list[2])+4
+		Bert = string[low:-high]
+		print (Bert)
+		return Bert
 
 
 
@@ -88,7 +102,14 @@ def two(input):
 	# No Hints for this question
 
 def three(arg1):
-	return "null"
+	if arg1 % 3 == 0 and arg1 % 5 == 0:
+		return 'fizzbuzz'
+	elif arg1 % 3 == 0:
+		return 'fizz'
+	elif arg1 % 5 == 0:
+		return 'buzz'
+	else:
+		return 'null'
 
 
 	# <QUESTION 4>
@@ -114,7 +135,12 @@ def three(arg1):
 	# help(int) for working with numbers and help(str) for working with Strings.
 
 def four(arg1):
-	return 0
+	out = 0
+	for i in arg1.split():
+		s = sum(map(int,i))
+		if s > out:
+			out = s
+	return out
 
 	# <QUESTION 5>
 
@@ -141,8 +167,16 @@ def four(arg1):
 
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
-def five(input):
-	return []
+def five(string):
+    list = string.split(',')
+    names = []
+    for i in range(0,len(list),4):
+        sublist = list[i:i+4]
+        print(sublist)
+        if sublist[2] == 'False' and sublist[0] not in names:
+            names.append(sublist[0])
+    return names
+
 
 	# <QUESTION 6>
 
@@ -162,8 +196,30 @@ def five(input):
 	# Step through the logic here in order to solve the problem, you may find help(range) helpful.
 
 
-def six(input):
-    return False
+def six(word):
+	B = False
+	for i in range(0,len(word)-1):
+		thisletter = word[i]
+		nextletter = word[i+1]
+		if i > 0:
+			lastletter = word[i-1]
+		else:
+			lastletter = ''
+		if thisletter == 'e':
+			if nextletter == 'i':
+				if lastletter == 'c':
+					B= True
+				else:
+					B = False
+					return B
+			elif lastletter == 'i':
+				B = True
+		if thisletter == 'i':
+			if nextletter == 'e':
+				if lastletter =='c':
+					B = False
+					return B
+	return B
 
 	# <QUESTION 7>
 
@@ -179,8 +235,13 @@ def six(input):
 
 	# How do we ignore case in a String? help(str) may offer some insight.
 
-def seven(input):
-    return 0
+def seven(string):
+	vowels = list('aeiouAEIOU')
+	count = 0
+	for c in string:
+		if c in vowels:
+			count = count + 1
+	return count
 
 	# <QUESTION 8>
 
@@ -197,8 +258,12 @@ def seven(input):
 
 	# You may need to create a list of numbers from 0 to i, take a look at help(range).
 
-def eight(input):
-	return 1
+def eight(x):
+	total = 1
+	while x>0:
+		total = total * x
+		x = x-1
+	return total
 
 	# <QUESTION 9>
 
@@ -219,7 +284,11 @@ def eight(input):
 	# Take a look at the documentation for Strings, List and range.
 
 def nine(inputString, char):
-	return -1
+    if char in inputString:
+        newstring = inputString.replace(' ','')
+        return newstring.index(char) + 1
+    else:
+        return -1
 
 	# <QUESTION 10>
 
@@ -239,4 +308,4 @@ def nine(inputString, char):
 	# How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.
  
 def ten(string, int, char):
-	return False
+	return True if ((int-1) <= len(string))and(string.lower()[int-1] == char.lower()) else False
