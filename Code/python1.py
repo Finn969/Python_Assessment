@@ -39,9 +39,6 @@ def one(input1, input2):
 	elif len(input1) > len(input2):return input1
 	else:return input2
 
-
-
-
 	# <QUESTION 2>
 
     # Return the string that is between the first and last appearance of "bert" in the given string
@@ -67,11 +64,6 @@ def one(input1, input2):
 def two(string):
 	return '' if len(string.lower().split('bert')) != 3 else string[(len(string.lower().split('bert')[0])+4):-(len(string.lower().split('bert')[2])+4)]
 
-
-
-
-
-
 	# <QUESTION 3>
 
     # given a number
@@ -96,7 +88,6 @@ def three(arg1):
 	elif arg1 % 3 == 0: return'fizz'
 	elif arg1 % 5 == 0: return'buzz'
 	else:return 'null'
-
 
 	# <QUESTION 4>
 
@@ -153,13 +144,10 @@ def four(arg1):
 	# help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).
 
 def five(string):
-    list = string.split(',')
     names = []
-    for i in range(0,len(list),4):
-        sublist = list[i:i+4]
-        if sublist[2] == 'False' and sublist[0] not in names:names.append(sublist[0])
+    for i in range(0,len(string.split(',')),4):
+        if string.split(',')[i:i+4][2] == 'False' and string.split(',')[i:i+4][0] not in names:names.append(string.split(',')[i:i+4][0])
     return names
-
 
 	# <QUESTION 6>
 
