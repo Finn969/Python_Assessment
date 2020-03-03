@@ -69,15 +69,12 @@ def one(input1, input2):
 
 def two(string):
 	list = string.lower().split('bert')
-	print (list)
 	if len(list) != 3:
 		return ''
 	else:
-		low = len(list[0])+4
-		high = len(list[2])+4
-		Bert = string[low:-high]
-		print (Bert)
+		Bert = string[(len(list[0])+4):-(len(list[2])+4)]
 		return Bert
+
 
 
 
@@ -102,14 +99,10 @@ def two(string):
 	# No Hints for this question
 
 def three(arg1):
-	if arg1 % 3 == 0 and arg1 % 5 == 0:
-		return 'fizzbuzz'
-	elif arg1 % 3 == 0:
-		return 'fizz'
-	elif arg1 % 5 == 0:
-		return 'buzz'
-	else:
-		return 'null'
+	if arg1 % 3 == 0 and arg1 % 5 == 0: return'fizzbuzz'
+	elif arg1 % 3 == 0: return'fizz'
+	elif arg1 % 5 == 0: return'buzz'
+	else:return 'null'
 
 
 	# <QUESTION 4>
@@ -172,7 +165,6 @@ def five(string):
     names = []
     for i in range(0,len(list),4):
         sublist = list[i:i+4]
-        print(sublist)
         if sublist[2] == 'False' and sublist[0] not in names:
             names.append(sublist[0])
     return names
@@ -199,26 +191,12 @@ def five(string):
 def six(word):
 	B = False
 	for i in range(0,len(word)-1):
-		thisletter = word[i]
-		nextletter = word[i+1]
-		if i > 0:
-			lastletter = word[i-1]
-		else:
-			lastletter = ''
-		if thisletter == 'e':
-			if nextletter == 'i':
-				if lastletter == 'c':
-					B= True
-				else:
-					B = False
-					return B
-			elif lastletter == 'i':
-				B = True
-		if thisletter == 'i':
-			if nextletter == 'e':
-				if lastletter =='c':
-					B = False
-					return B
+		if word[i] == 'e':
+			if word[i+1] == 'i':
+				if word[i-1] == 'c': B= True
+				else:return False
+			elif word[i-1] == 'i': B= True
+		elif word[i] == 'i'and word[i+1] == 'e' and word[i-1] =='c':return False
 	return B
 
 	# <QUESTION 7>
@@ -240,7 +218,7 @@ def seven(string):
 	count = 0
 	for c in string:
 		if c in vowels:
-			count = count + 1
+			count +=1
 	return count
 
 	# <QUESTION 8>
